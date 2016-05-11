@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     // Spawn new Window
     function window(object, callback) {
-        if (storage.windows[object.app]) return;
+        //if (storage.windows[object.app]) return;
 
         $id = guid();
         $desktop = $('.windows');
@@ -39,11 +39,18 @@ $(document).ready(function() {
             at: "center center"
         });
 
-        storage.windows[object.app] = true;
+        //storage.windows[object.app] = true;
 
-        $("#" + $id + " #close").bind("click", function() {
+        /*$("#" + $id + " #close").bind("click", function() {
             storage.windows[object.app] = false;
             $("#" + $id).remove();
+            $("#" + object.app).removeClass("active");
+        });*/
+
+        $(document).delegate(".window .controls #close", "click", function() {
+            //storage.windows[object.app] = false;
+            var winID = $(this).closest("div.window").attr("id");
+            $("#" + winID).remove();
             $("#" + object.app).removeClass("active");
         });
 
