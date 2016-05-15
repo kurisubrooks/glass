@@ -2,54 +2,104 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>gloss</title>
-
-    <!-- Libraries -->
+    <title>OS</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500,400,300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-    <script src="./jquery-ui.min.js"></script>
-    <link href="./style.css" rel="stylesheet">
-    <script src="client.js"></script>
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="./js/core.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/apps.js"></script>
 </head>
 <body>
 
     <!-- Main -->
     <div class="desktop">
+        <!-- Startup Screen -->
+        <!--<div class="startup">
+            <div class="loader">・・・</div>
+        </div>-->
+        
+        <!-- Overlay -->
+        <div class="overlay"></div>
+        
         <!-- Desktop -->
         <div class="galaxy"></div>
 
         <!-- Window Storage -->
-        <div class="windows"></div>
+        <div class="windows">
+            <!--
+            <div class="window dark" id="c279bf83-decd-dbb9-3d59-71e1998ae2d5" style="top: 71.5px; left: 290px;">
+                <div class="menubar">
+                    <div class="title">Terminal</div>
+                    <div class="controls">
+                        <span id="minimize"><i class="material-icons">remove</i></span>
+                        <span id="maximize"><i class="material-icons">add</i></span>
+                        <span id="close"><i class="material-icons">close</i></span>
+                    </div>
+                </div>
+                <div class="content" style="height: 400px; width: 700px;">Hello!</div>
+            </div>
+            -->
+        </div>
 
         <!-- Notifications -->
-        <div class="toaster"></div>
-
-        <!-- Google-type Homepage
-        <div style="text-align:center;padding-top:7.5em;">
-            <img src="https://www.google.com.au/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
-            <br><br>
-            <input type="text" style="border:1px solid #EEE;width:500px;height:38px;" align="center">
-            <br><br>
-            <button style="-webkit-border-radius: 2px;-webkit-user-select: none;background-color: #f2f2f2;border: 1px solid #f2f2f2;border-radius: 2px;color: #757575;cursor: default;font-family: arial,sans-serif;font-size: 13px;font-weight: bold;margin: 11px 4px;min-width: 54px;padding: 0 16px;text-align: center;height: 36px;line-height: 27px;">Google Search</button>
-            <button style="-webkit-border-radius: 2px;-webkit-user-select: none;background-color: #f2f2f2;border: 1px solid #f2f2f2;border-radius: 2px;color: #757575;cursor: default;font-family: arial,sans-serif;font-size: 13px;font-weight: bold;margin: 11px 4px;min-width: 54px;padding: 0 16px;text-align: center;height: 36px;line-height: 27px;">I'm Feeling Lucky</button>
+        <div class="breadbox"></div>
+        
+        <!-- Alerts -->
+        <div class="alerts">
+            <!--
+            <div class="alert">
+                <div class="title">地震警報</div>
+                <div class="message">緊急地震速報<br>千葉沖で地震発生。強い揺れに備えて下さい（気象庁）</div>
+                <div class="action"><button class="btn">OK</button></div>
+            </div>
+            -->
         </div>
-        -->
 
         <!-- Dock / Toolbar -->
         <div class="toolbar">
             <div class="apps">
                 <span id="app_launcher"><i class="material-icons">apps</i></span>
-                <span id="app_browser"><i class="material-icons">language</i></span>
-                <span id="app_settings"><i class="material-icons">settings</i></span>
+                <span id="app_browser"><img src="./icons/small/Chrome.png" height="24px"></span>
+                <span id="app_settings"><img src="./icons/small/Settings.png" height="24px"></span>
+                <span id="app_terminal"><img src="./icons/small/Terminal.png" height="24px"></span>
+            </div>
+
+            <div class="apps-popover">
+                <div class="app" id="app_browser">
+                    <div class="app-icon"><img src="./icons/large/Chrome.png" height="48px"></div>
+                    <div class="app-title">Browser</div>
+                </div>
+
+                <div class="app" id="app_settings">
+                    <div class="app-icon"><img src="./icons/large/Settings.png" height="48px"></div>
+                    <div class="app-title">Settings</div>
+                </div>
+                
+                <div class="app" id="app_terminal">
+                    <div class="app-icon"><img src="./icons/large/Terminal.png" height="48px"></div>
+                    <div class="app-title">Terminal</div>
+                </div>
             </div>
 
             <div class="metabar">
-                <!--<span id="meta_volume"><i class="material-icons">volume_up</i></span>
-                <span id="meta_connection"><i class="material-icons">wifi</i></span>-->
-                <span id="meta_user"><i class="material-icons">account_circle</i></span>
-                <span id="meta_time">00:00</span>
+                <div class="trigger" id="meta_launcher">
+                    <span id="meta_user"><i class="material-icons">account_circle</i></span>
+                    <span id="meta_time">00:00</span>
+                </div>
+
+                <div class="metabar-popover">
+                    <ol>
+                        <li>Quick Settings</li>
+                        <li class="separator"></li>
+                        <li>User Info</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
