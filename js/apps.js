@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    var API = new OS();
+    
     // Browser Application
     $("[id^='app_browser']").click(function() {
         new OS().Window({
@@ -14,7 +16,7 @@ $(document).ready(function() {
 
     // Settings Application
     $("[id^='app_settings']").click(function() {
-        new OS().Window({
+        API.Window({
             title: "Settings",
             app: "app_settings",
             icon: "./icons/large/Terminal.png",
@@ -27,7 +29,7 @@ $(document).ready(function() {
     
     // Terminal Application
     $("[id^='app_terminal']").click(function() {
-        new OS().Window({
+        API.Window({
             title: "Terminal",
             app: "app_terminal",
             icon: "./icons/large/Terminal.png",
@@ -39,7 +41,7 @@ $(document).ready(function() {
     });
     
     // Notification
-    new OS().Notification({
+    API.Notification({
         title: "Shake",
         urgent: true,
         icon: "",
@@ -48,18 +50,18 @@ $(document).ready(function() {
     });
     
     // Toast
-    new OS().Toast({
+    API.Toast({
         message: "Unknown Error"
     });
     
     // Alert
-    new OS().Alert({
+    API.Alert({
         title: "地震警報",
         message: "緊急地震速報<br>千葉沖で地震発生。強い揺れに備えて下さい（気象庁）"
     });
     
     // Window
-    new OS().Window({
+    API.Window({
         title: "Window",
         app: "app_test",
         icon: "./icons/large/Browser.png",

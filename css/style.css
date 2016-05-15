@@ -108,6 +108,46 @@ input:focus, button:focus { outline: none; }
     cursor: pointer;
 }
 
+.desktop .breadbox {
+    position: absolute;
+    transform: translateX(-50%);
+    z-index: 100;
+    top: 5px;
+    left: 50%;
+    width: 370px;
+}
+
+.desktop .breadbox .notification {
+    background: rgba(248, 248, 248, 0.95);
+    padding: 0.5em;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+
+.desktop .breadbox .notification .image {
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px 0.3em 0 0;
+}
+
+.desktop .breadbox .notification .image img {
+    height: 35px;
+    border-radius: 1.5em;
+    //box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.desktop .breadbox .notification .text {
+    display: inline-block;
+}
+
+.desktop .breadbox .notification .text .title {
+    font-weight: 500;
+}
+
 .desktop .alerts .alert {
     position: absolute;
     background: #212121;
