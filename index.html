@@ -3,15 +3,18 @@
 <head>
     <meta charset="utf-8">
     <title>OS</title>
+    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:500,400,300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-    <link href="./css/style.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.12.0/lodash.min.js"></script>
+    <script src="./js/lib/cookie.min.js"></script>
     <script src="./js/core.js"></script>
     <script src="./js/api.js"></script>
     <script src="./js/apps.js"></script>
@@ -32,89 +35,31 @@
         <div class="galaxy"></div>
 
         <!-- Window Storage -->
-        <div class="windows">
-            <!--
-            <div class="window dark" id="c279bf83-decd-dbb9-3d59-71e1998ae2d5" style="top: 71.5px; left: 290px;">
-                <div class="menubar">
-                    <div class="title">Terminal</div>
-                    <div class="controls">
-                        <span id="minimize"><i class="material-icons">remove</i></span>
-                        <span id="maximize"><i class="material-icons">add</i></span>
-                        <span id="close"><i class="material-icons">close</i></span>
-                    </div>
-                </div>
-                <div class="content" style="height: 400px; width: 700px;">Hello!</div>
-            </div>
-            -->
-        </div>
+        <div class="windows"></div>
 
         <!-- Notifications -->
-        <div class="breadbox">
-            <!--<div class="notification">
-                <div class="image">
-                    <img src="./icons/shake.png" width="35px">
-                </div>
-                <div class="text">
-                    <div class="title">Shake</div>
-                    <div class="subtitle">緊急地震速報</div>
-                    <div class="message">宮城県沖　マグニチュード 3.5　震度 2</div>
-                </div>
-            </div>
-            
-            <div class="notification">
-                <div class="image">
-                    <img src="./icons/small/Downloads.png" width="35px">
-                </div>
-                <div class="text">
-                    <div class="title">Download Manager</div>
-                    <div class="subtitle"></div>
-                    <div class="message">Finished downloading 9 item(s)</div>
-                </div>
-            </div>-->
-        </div>
+        <div class="breadbox"></div>
         
         <!-- Alerts -->
-        <div class="alerts">
-            <!--
-            <div class="alert">
-                <div class="title">地震警報</div>
-                <div class="message">緊急地震速報<br>千葉沖で地震発生。強い揺れに備えて下さい（気象庁）</div>
-                <div class="action"><button class="btn">OK</button></div>
-            </div>
-            -->
-        </div>
+        <div class="alerts"></div>
 
         <!-- Toolbar -->
         <div class="toolbar">
+            <!-- Active Applications -->
             <div class="apps">
                 <span id="app_launcher"><i class="material-icons">apps</i></span>
-                <span id="app_browser"><img src="./icons/small/Chrome.png" height="24px"></span>
-                <span id="app_settings"><img src="./icons/small/Settings.png" height="24px"></span>
             </div>
 
-            <div class="apps-popover">
-                <!--<div class="app" id="app_browser">
-                    <div class="app-icon"><img src="./icons/large/Chrome.png" height="48px"></div>
-                    <div class="app-title">Browser</div>
-                </div>
+            <!-- Application Launcher -->
+            <div class="apps-popover"></div>
 
-                <div class="app" id="app_settings">
-                    <div class="app-icon"><img src="./icons/small/Settings.png" height="48px"></div>
-                    <div class="app-title">Settings</div>
-                </div>
-                
-                <div class="app" id="app_terminal">
-                    <div class="app-icon"><img src="./icons/small/Terminal.png" height="48px"></div>
-                    <div class="app-title">Terminal</div>
-                </div>-->
-            </div>
-
+            <!-- Metabar -->
             <div class="metabar">
                 <div class="trigger" id="meta_launcher">
-                    <!--<span id="meta_user"><i class="material-icons">account_circle</i></span>-->
-                    <span id="meta_time">00:00</span>
+                    <span id="meta_time">ERROR</span>
                 </div>
 
+                <!-- Metabar Action -->
                 <div class="metabar-popover">
                     <ol>
                         <li>Quick Settings</li>

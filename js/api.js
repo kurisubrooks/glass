@@ -8,6 +8,7 @@ var OS = function() {
     
     this.Window = function(object) {
         var $id = guid();
+        var $html;
 
         // Window Template
         var $window =   $('<div class="window" id="' + $id + '"></div>');
@@ -18,32 +19,37 @@ var OS = function() {
         var $ui_max =               $('<span id="maximize"><i class="material-icons">add</i></span>');
         var $ui_close =             $('<span id="close"><i class="material-icons">close</i></span>');
         var $content =      $('<div class="content"></div>');
+        
+        // Get Window Content
+        $.get(object.main, function(data) {
+            $html = data;
+        }).done(function() {
+            // Build Window
+            $window.addClass((object.theme) ? object.theme : "light");
+            $title.text(object.title);
+            $content.height(object.height);
+            $content.width(object.width);
+            $content.html($html);
 
-        // Build Window
-        $window.addClass((object.theme) ? object.theme : "light");
-        $title.text(object.title);
-        $content.height(object.height);
-        $content.width(object.width);
-        $content.html(object.content);
+            $controls.append($ui_min);
+            $controls.append($ui_max);
+            $controls.append($ui_close);
+            $menubar.append($title);
+            $menubar.append($controls);
+            $window.append($menubar);
+            $window.append($content);
+            $windows.append($window);
+            
+            // Window Positioning        
+            $("#" + $id).draggable({ handle: $("#" + $id + " .menubar"), scroll: false, containment: "parent" });
+            $("#" + $id).resizable();
+            $("#" + $id).position({ of: $windows, my: "center center", at: "center center" });
 
-        $controls.append($ui_min);
-        $controls.append($ui_max);
-        $controls.append($ui_close);
-        $menubar.append($title);
-        $menubar.append($controls);
-        $window.append($menubar);
-        $window.append($content);
-        $windows.append($window);
-
-        // Window Positioning        
-        $("#" + $id).draggable({ handle: $("#" + $id + " .menubar"), scroll: false, containment: "parent" });
-        $("#" + $id).resizable();
-        $("#" + $id).position({ of: $windows, my: "center center", at: "center center" });
-
-        // Window Activation
-        if (!windows[object.app]) windows[object.app] = {};
-        if (!$("#" + object.app).hasClass("active")) $("#" + object.app).addClass("active");
-        windows[object.app][$id] = true;
+            // Window Activation
+            if (!windows[object.app]) windows[object.app] = {};
+            if (!$("#" + object.app).hasClass("active")) $("#" + object.app).addClass("active");
+            windows[object.app][$id] = true;
+        });
 
         // Window Close
         $(document).delegate(".window#" + $id + " .controls #close", "click", function(e) {
@@ -58,15 +64,7 @@ var OS = function() {
             windows[object.app][$window_id] = false;
 
             // Remove Window Indicator if All Windows Closed
-            var all_false = true;
-            for (var i in windows[object.app]) {
-                if (i == true) {
-                    all_false = false;
-                    break;
-                }
-            }
-
-            if (all_false) $("#" + object.app).removeClass("active");
+            if (_.every(_.values(saver), function(v) {return !v;})) $("#" + object.app).removeClass("active");
         });
     }
     
