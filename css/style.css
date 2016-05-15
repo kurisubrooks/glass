@@ -1,0 +1,306 @@
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    color: #555;
+}
+
+a {
+    font: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 5px;
+}
+
+input:focus, button:focus { outline: none; }
+
+.overlay {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.desktop {
+    height: 100%;
+    width: 100%;
+    font-family: "Roboto", "Noto Sans Japanese", sans-serif;
+    background: url(../wallpapers/nexus-5.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.desktop .windows {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 3.4em);
+    z-index: 1;
+}
+
+.desktop .window {
+    position: absolute;
+    z-index: 1;
+    min-width: 400px;
+    background: transparent;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    background: #FFF;
+}
+
+.window.light .menubar {
+    background: #F5F5F5;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.window.light .content {
+    background: #FAFAFA;
+    color: rgba(0, 0, 0, 1);
+}
+
+.window.dark .menubar {
+    background: #212121;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.window.dark .content {
+    background: #303030;
+    color: rgba(255, 255, 255, 1);
+}
+
+.desktop .window .content {
+    min-height: 180px;
+}
+
+.desktop .window .menubar {
+    padding: 0.5em;
+    height: 24px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.desktop .window .menubar .title {
+    float: left;
+    height: 24px;
+    padding-top: 3px;
+    margin-left: 5px;
+}
+
+.desktop .window .menubar .controls {
+    float: right;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.desktop .window .menubar .controls span {
+    height: 24px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.desktop .alerts .alert {
+    position: absolute;
+    background: #212121;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 300;
+    z-index: 1001;
+    width: 365px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+}
+
+.desktop .alerts .alert .title {
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    padding: 0.7em;
+}
+
+.desktop .alerts .alert .message {
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0.7em;
+}
+
+.desktop .alerts .alert .action {
+    border-top: 1px solid #3A3A3A;
+    text-align: center;
+    line-height: 22px;
+    padding: 0.5em;
+}
+
+.desktop .alerts .alert .action .btn {
+    -webkit-appearance: none;
+    font: inherit;
+    padding: 6px 16px;
+    text-transform: uppercase;
+    color: #4DB6AC;
+    background: transparent;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.desktop .toolbar {
+    background: #212121;
+    color: #FFF;
+    padding: 0.5em;
+    position: absolute;
+    z-index: 2;
+    height: 2.4em;
+    width: calc(100% - 1em);
+    bottom: 0;
+    left: 0;
+}
+
+.desktop .toolbar .apps {
+    float: left;
+    border-radius: 2px;
+}
+
+.desktop .toolbar .apps span {
+    display: inline-flex;
+    vertical-align: middle;
+    padding: 0.45em;
+    margin-right: 0.5em;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.desktop .toolbar .apps span.active {
+    border-bottom: 2px solid white;
+}
+
+.desktop .toolbar .apps span:hover {
+    background: #303030;
+}
+
+.desktop .toolbar .apps #app_launcher {
+    border-radius: 0.1em;
+    background: #303030;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+}
+
+.desktop .toolbar .apps .active .material-icons,
+.desktop .toolbar .apps .active img {
+    height: 24px;
+}
+
+.desktop .toolbar .apps-popover {
+    display: none;
+    width: 360px;
+    height: 400px;
+    padding: 1em;
+    position: absolute;
+    color: #000;
+    background: #FFF;
+    z-index: 100;
+    bottom: 62px;
+    left: 8px;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 0 auto;
+    cursor: default;
+}
+
+.desktop .toolbar .apps-popover .app {
+    display: inline-block;
+    text-align: center;
+    width: 70px;
+    padding: 0.5em;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.desktop .toolbar .apps-popover .app:hover {
+    background: #F9F9F9;
+}
+
+.desktop .toolbar .apps-popover .app .app-icon img {
+
+}
+
+.desktop .toolbar .apps-popover .app .app-title {
+    margin-top: 5px;
+    //font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #555;
+}
+
+.desktop .toolbar .metabar {
+    float: right;
+}
+
+.desktop .toolbar .metabar .trigger {
+    display: inline-flex;
+    vertical-align: middle;
+    padding: 0.45em;
+    border-radius: 0.1em;
+    background: #303030;
+    cursor: pointer;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+}
+
+.desktop .toolbar .metabar .trigger span {
+    height: 24px;
+    margin: 0 0.25em;
+}
+
+.desktop .toolbar .metabar .trigger #meta_time {
+    padding-top: 3px;
+    height: 20px;
+}
+
+.desktop .toolbar .metabar .metabar-popover {
+    display: none;
+    width: 360px;
+    height: auto;
+    position: absolute;
+    color: #000;
+    background: #FFF;
+    z-index: 100;
+    bottom: 62px;
+    right: 8px;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    margin: 0 auto;
+    cursor: default;
+}
+
+.desktop .toolbar .metabar .metabar-popover ol,
+.desktop .toolbar .metabar .metabar-popover li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop .toolbar .metabar .metabar-popover li {
+    padding: 1em;
+    cursor: pointer;
+}
+
+.desktop .toolbar .metabar .metabar-popover li.separator {
+    height: 1px;
+    border-top: 1px solid #DDD;
+    padding: 0;
+    margin: 2px 0;
+    cursor: default;
+}
