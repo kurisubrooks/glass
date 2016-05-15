@@ -53,20 +53,13 @@ $(document).ready(function() {
     
     // Notification
     API.Notification({
-        title: "Shake",
-        urgent: true,
-        icon: "",
-        sound: "",
-        message: "宮城県沖 マグニチュード６.３ 震度７"
-    });
-    
-    // Toast
-    API.Toast({
-        message: "Unknown Error"
+        title: "Downloads",
+        icon: "./icons/small/Downloads.png",
+        message: "Finished downloading 9 item(s)"
     });
     
     // Alert
-    API.Alert({
+    /*API.Alert({
         title: "地震警報",
         message: "緊急地震速報<br>千葉沖で地震発生。強い揺れに備えて下さい（気象庁）"
     });
