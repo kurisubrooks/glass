@@ -1,23 +1,23 @@
 var windows = {};
 
 var OS = function() {
-    $overlay = $(".overlay");
-    $windows = $(".windows");
-    $alerts = $(".alerts");
-    $notifications = $(".breadbox");
+    var $overlay = $(".overlay");
+    var $windows = $(".windows");
+    var $alerts = $(".alerts");
+    var $notifications = $(".breadbox");
     
     this.Window = function(object) {
         var $id = guid();
 
         // Window Template
-        $window =   $('<div class="window" id="' + $id + '"></div>');
-        $menubar =      $('<div class="menubar"></div>');
-        $title =            $('<div class="title"></div>');
-        $controls =         $('<div class="controls"></div>');
-        $ui_min =               $('<span id="minimize"><i class="material-icons">remove</i></span>');
-        $ui_max =               $('<span id="maximize"><i class="material-icons">add</i></span>');
-        $ui_close =             $('<span id="close"><i class="material-icons">close</i></span>');
-        $content =      $('<div class="content"></div>');
+        var $window =   $('<div class="window" id="' + $id + '"></div>');
+        var $menubar =      $('<div class="menubar"></div>');
+        var $title =            $('<div class="title"></div>');
+        var $controls =         $('<div class="controls"></div>');
+        var $ui_min =               $('<span id="minimize"><i class="material-icons">remove</i></span>');
+        var $ui_max =               $('<span id="maximize"><i class="material-icons">add</i></span>');
+        var $ui_close =             $('<span id="close"><i class="material-icons">close</i></span>');
+        var $content =      $('<div class="content"></div>');
 
         // Build Window
         $window.addClass((object.theme) ? object.theme : "light");
@@ -71,22 +71,47 @@ var OS = function() {
     }
     
     this.Notification = function(object) {
-        console.log("NOTIFICATION INIT");
-    }
-    
-    this.Toast = function(object) {
-        console.log("TOAST INIT");
+        var $id = guid();
+        
+        // Notification Template
+        var $notification =     $('<div class="notification" id="' + $id + '"></div>');
+        var $image_container =      $('<div class="image"></div>');
+        var $image =                    $('<img width="35px">');
+        var $text_container =       $('<div class="text"></div>');
+        var $title =                    $('<div class="title"></div>');
+        var $subtitle =                 $('<div class="subtitle"></div>');
+        var $message =                  $('<div class="message"></div>');
+        
+        // Build Notification
+        $image.attr("src", object.icon);
+        $title.text(object.title);
+        $subtitle.text((object.subtitle) ? object.subtitle : "");
+        $message.text(object.message);
+        
+        $text_container.append($title);
+        $text_container.append($subtitle);
+        $text_container.append($message);
+        $image_container.append($image);
+        $notification.append($image_container);
+        $notification.append($text_container);
+        $notifications.append($notification);
+        
+        setTimeout(function() {
+            $notification.fadeOut("fast", function() {
+                $notification.remove();
+            });
+        }, 8000);
     }
     
     this.Alert = function(object) {
         var $id = guid();
         
         // Alert Template
-        $alert =        $('<div class="alert" id="' + $id + '"></div>');
-        $title =            $('<div class="title"></div>');
-        $message =          $('<div class="message"></div>');
-        $action =           $('<div class="action"></div>');
-        $action_btn =           $('<button class="btn">OK</button>');
+        var $alert =        $('<div class="alert" id="' + $id + '"></div>');
+        var $title =            $('<div class="title"></div>');
+        var $message =          $('<div class="message"></div>');
+        var $action =           $('<div class="action"></div>');
+        var $action_btn =           $('<button class="btn">OK</button>');
         
         // Build Alert
         $title.text(object.title);
@@ -97,7 +122,6 @@ var OS = function() {
         $alert.append($message);
         $alert.append($action);
         $alerts.append($alert);
-        
         $overlay.fadeIn("fast");
         $alert.fadeIn("fast");
         
