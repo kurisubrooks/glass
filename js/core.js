@@ -30,4 +30,22 @@ $(document).ready(function() {
             popovers.meta = true;
         }
     });
+    
+    // System Clock
+    function clock() { $("#meta_time").text(moment().format("h:mm A")); }
+    setInterval(clock, 1000);
+    clock();
+    
+    // Notification
+    /*new OS().Notification({
+        title: "Downloads",
+        icon: "./icons/small/Downloads.png",
+        message: "Finished downloading 9 item(s)"
+    });*/
+    
+    // Alert
+    /*new OS().Alert({
+        title: "地震警報",
+        message: "緊急地震速報<br>千葉沖で地震発生。強い揺れに備えて下さい（気象庁）"
+    });*/
 });

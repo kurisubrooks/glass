@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    var API = new OS();
-    
     var apps = [
         {
             title: "Browser",
@@ -41,8 +39,9 @@ $(document).ready(function() {
     ];
     
     _.forEach(_.sortBy(apps, function(o) { return o.title; }), function(config) {
-        $("[id^='" + config.app + "']").click(function() {
-            API.Window(config);
+        $(document).delegate("[id^='" + config.app + "']", "click", function(e) {
+            e.stopImmediatePropagation();
+            new OS().Window(config);
         });
         
         $(".apps-popover").append('<div class="app" id="' + config.app + '">' +
@@ -50,22 +49,4 @@ $(document).ready(function() {
         '<div class="app-title">' + config.title + '</div>' +
         '</div>');
     });
-    
-    // Notification
-    API.Notification({
-        title: "Downloads",
-        icon: "./icons/small/Downloads.png",
-        message: "Finished downloading 9 item(s)"
-    });
-    
-    // Alert
-    /*API.Alert({
-        title: "地震警報",
-        message: "緊急地震速報<br>千葉沖で地震発生。強い揺れに備えて下さい（気象庁）"
-    });
-
-    // System Clock
-    function clock() { $("#meta_time").text(moment().format("h:mm A")); }
-    setInterval(clock, 1000);
-    clock();
 });
