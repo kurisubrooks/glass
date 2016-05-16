@@ -1,0 +1,44 @@
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: "Roboto", "Noto Sans Japanese", sans-serif;
+    overflow: hidden;
+    color: #555;
+}
+
+a {
+    font: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 5px;
+}
+
+input:focus,
+button:focus { outline: none; }
+
+.overlay {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.desktop {
+    height: 100%;
+    width: 100%;
+    font-family: "Roboto", "Noto Sans Japanese", sans-serif;
+    background: url(../wallpapers/nexus-5.jpg) no-repeat center center fixed;
+    background-size: cover;
+}

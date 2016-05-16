@@ -1,0 +1,45 @@
+.desktop .breadbox {
+    position: absolute;
+    transform: translateX(-50%);
+    z-index: 100;
+    top: 5px;
+    left: 50%;
+    width: 415px;
+}
+
+.desktop .breadbox .notification {
+    background: rgba(245, 245, 245, 0.9);
+    padding: 0.7em;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+    cursor: default;
+    transition: background 0.1s;
+}
+
+.desktop .breadbox .notification:hover,
+.desktop .breadbox .notification:active {
+    background: #FFF;
+}
+
+.desktop .breadbox .notification .image {
+    display: inline-block;
+    vertical-align: top;
+    margin: 1px 0.5em 0 0;
+}
+
+.desktop .breadbox .notification .image img {
+    height: 35px;
+}
+
+.desktop .breadbox .notification .text {
+    display: inline-block;
+    line-height: 21px;
+}
+
+.desktop .breadbox .notification .text .title {
+    font-weight: 500;
+}

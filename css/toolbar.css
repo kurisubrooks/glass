@@ -1,0 +1,149 @@
+.desktop .toolbar {
+    background: #212121;
+    color: #FFF;
+    padding: 0.5em;
+    position: absolute;
+    z-index: 2;
+    height: 2.4em;
+    width: calc(100% - 1em);
+    bottom: 0;
+    left: 0;
+}
+
+.desktop .toolbar > .apps {
+    float: left;
+    border-radius: 2px;
+}
+
+.desktop .toolbar > .apps span {
+    display: inline-flex;
+    vertical-align: middle;
+    padding: 0.45em;
+    margin-right: 0.5em;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.desktop .toolbar > .apps span.active {
+    border-bottom: 2px solid white;
+}
+
+.desktop .toolbar > .apps span:hover {
+    background: #303030;
+}
+
+.desktop .toolbar > .apps #app_launcher {
+    border-radius: 0.1em;
+    background: #303030;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+}
+
+.desktop .toolbar > .apps .active .material-icons,
+.desktop .toolbar > .apps .active img {
+    height: 24px;
+}
+
+.desktop .toolbar .launcher {
+    display: none;
+    width: 350px;
+    height: 400px;
+    padding: 1em;
+    position: absolute;
+    color: #000;
+    background: #FFF;
+    z-index: 100;
+    bottom: 62px;
+    left: 8px;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    overflow-x: hidden;
+    margin: 0 auto;
+    cursor: default;
+}
+
+.desktop .toolbar .launcher .app {
+    display: inline-block;
+    text-align: center;
+    width: 70px;
+    padding: 0.5em;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.desktop .toolbar .launcher .app:hover {
+    background: #F9F9F9;
+}
+
+.desktop .toolbar .launcher .app .app-icon img {
+
+}
+
+.desktop .toolbar .launcher .app .app-title {
+    margin-top: 5px;
+    //font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #555;
+}
+
+.desktop .toolbar .metabar {
+    float: right;
+}
+
+.desktop .toolbar .metabar .trigger {
+    display: inline-flex;
+    vertical-align: middle;
+    padding: 0.45em;
+    border-radius: 0.1em;
+    background: #303030;
+    cursor: pointer;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+}
+
+.desktop .toolbar .metabar .trigger span {
+    height: 24px;
+    margin: 0 0.25em;
+}
+
+.desktop .toolbar .metabar .trigger #meta_time {
+    padding-top: 3px;
+    height: 20px;
+}
+
+.desktop .toolbar .metabar .metabar-popover {
+    display: none;
+    width: 360px;
+    height: auto;
+    position: absolute;
+    color: #000;
+    background: #FFF;
+    z-index: 100;
+    bottom: 62px;
+    right: 8px;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    margin: 0 auto;
+    cursor: default;
+}
+
+.desktop .toolbar .metabar .metabar-popover ol,
+.desktop .toolbar .metabar .metabar-popover li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop .toolbar .metabar .metabar-popover li {
+    padding: 1em;
+    cursor: pointer;
+}
+
+.desktop .toolbar .metabar .metabar-popover li.separator {
+    height: 1px;
+    border-top: 1px solid #DDD;
+    padding: 0;
+    margin: 2px 0;
+    cursor: default;
+}
