@@ -9,13 +9,13 @@ $(document).ready(function() {
         //return false;
     });
 
-    // Apps Popover
+    // App Launcher
     $("#app_launcher").click(function() {
         if (popovers.apps) {
-            $(".apps-popover").fadeOut(20);
+            $(".launcher").fadeOut(20);
             popovers.apps = false;
         } else if (!popovers.apps) {
-            $(".apps-popover").fadeIn(10);
+            $(".launcher").fadeIn(10);
             popovers.apps = true;
         }
     });
@@ -30,19 +30,19 @@ $(document).ready(function() {
             popovers.meta = true;
         }
     });
-    
+
     // System Clock
     function clock() { $("#meta_time").text(moment().format("h:mm A")); }
     setInterval(clock, 1000);
     clock();
-    
+
     // Notification
     /*new OS().Notification({
         title: "Downloads",
         icon: "./icons/small/Downloads.png",
         message: "Finished downloading 9 item(s)"
     });*/
-    
+
     // Alert
     /*new OS().Alert({
         title: "地震警報",
