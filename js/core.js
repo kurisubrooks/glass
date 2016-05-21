@@ -5,8 +5,13 @@ $(document).ready(function() {
     };
 
     // Disable Right Click
-    $(document).on("contextmenu", function() {
-        //return false;
+    $(document).on("contextmenu", function(e) {
+        e.preventDefault();
+        // return false;
+    });
+    
+    $(document).bind("click", function(e) {
+        // return false;
     });
 
     // App Launcher
@@ -35,13 +40,15 @@ $(document).ready(function() {
     function clock() { $("#meta_time").text(moment().format("h:mm A")); }
     setInterval(clock, 1000);
     clock();
+});
 
+$(window).load(function() {  
     // Notification
-    /*new OS().Notification({
-        title: "Downloads",
-        icon: "./icons/small/Downloads.png",
-        message: "Finished downloading 9 item(s)"
-    });*/
+    new OS().Notification({
+        title: "System",
+        icon: "./icons/system.png",
+        message: "Initialization Complete"
+    });
 
     // Alert
     /*new OS().Alert({
