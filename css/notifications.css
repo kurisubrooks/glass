@@ -28,7 +28,7 @@
 .desktop .breadbox .notification .image {
     display: inline-block;
     vertical-align: top;
-    margin: 1px 0.5em 0 0;
+    margin: 3px 0.5em 0 0;
 }
 
 .desktop .breadbox .notification .image img {
