@@ -44,6 +44,15 @@
     cursor: pointer;
 }
 
+.desktop .window .content {
+    min-height: 180px;
+}
+
+.desktop .window .content .page {
+    height: 100%;
+    width: 100%;
+}
+
 .window.light .menubar {
     background: #F5F5F5;
     color: rgba(0, 0, 0, 0.7);
@@ -62,13 +71,4 @@
 .window.dark {
     background: #303030;
     color: rgba(255, 255, 255, 1);
-}
-
-.desktop .window .content {
-    min-height: 180px;
-}
-
-.desktop .window .content .page {
-    height: 100%;
-    width: 100%;
 }
