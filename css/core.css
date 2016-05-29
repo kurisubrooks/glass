@@ -39,6 +39,6 @@ button:focus { outline: none; }
     height: 100%;
     width: 100%;
     font-family: "Roboto", "Noto Sans Japanese", sans-serif;
-    background: url(../wallpapers/nexus-5.jpg) no-repeat center center fixed;
+    background: url(../wallpapers/wally.png) no-repeat center center fixed;
     background-size: cover;
 }
