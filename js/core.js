@@ -43,18 +43,20 @@ $(document).ready(function() {
 });
 
 $(window).load(function() {
-    // Notification
-    new OS().Notification({
-        title: "System",
-        icon: "./icons/system.png",
-        message: "Initialization Complete"
-    });
-
-    // Alert
-    /*setTimeout(function() {
-        new OS().Alert({
-            title: "地震警報",
-            message: "緊急地震速報<br>岩手県で地震発生。強い揺れに備えて下さい（気象庁）"
+    setTimeout(function() {
+        // Notification
+        new OS().Notification({
+            title: "System",
+            icon: "./icons/system.png",
+            message: "Initialization Complete"
         });
-    }, 1000);*/
+
+        // Alert
+        /*new OS().Alert({
+            //title: "地震警報",
+            //message: "緊急地震速報<br>岩手県で地震発生。強い揺れに備えて下さい（気象庁）"
+            title: "NSW Emergency Alert",
+            message: "Strong Winds and Torrential Flooding is expected for your area within the next 24 hours. Evacuate to higher ground if possible. (Bureau of Meterology)"
+        });*/
+    }, 1000);
 });
