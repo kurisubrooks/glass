@@ -12,7 +12,7 @@ var apps = [
         theme: "light",
         height: 480,
         width: 800
-    },
+    }/*,
     {
         title: "Settings",
         app: "settings",
@@ -26,7 +26,7 @@ var apps = [
         theme: "dark",
         height: 400,
         width: 700
-    }
+    }*/
 ];
 
 $(document).ready(function() {
