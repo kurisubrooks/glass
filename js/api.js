@@ -105,11 +105,11 @@ var OS = function() {
         $notification.append($text_container);
         $notifications.append($notification);
 
-        /*setTimeout(function() {
+        setTimeout(function() {
             $notification.fadeOut("fast", function() {
                 $notification.remove();
             });
-        }, 8000);*/
+        }, 8000);
     };
 
     this.Alert = function(object) {
