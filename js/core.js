@@ -6,10 +6,10 @@ $(document).ready(function() {
 
     // Disable Right Click
     $(document).on("contextmenu", function(e) {
-        e.preventDefault();
+        //e.preventDefault();
         // return false;
     });
-    
+
     $(document).bind("click", function(e) {
         // return false;
     });
@@ -42,7 +42,7 @@ $(document).ready(function() {
     clock();
 });
 
-$(window).load(function() {  
+$(window).load(function() {
     // Notification
     new OS().Notification({
         title: "System",
@@ -51,8 +51,10 @@ $(window).load(function() {
     });
 
     // Alert
-    /*new OS().Alert({
-        title: "地震警報",
-        message: "緊急地震速報<br>千葉沖で地震発生。強い揺れに備えて下さい（気象庁）"
-    });*/
+    /*setTimeout(function() {
+        new OS().Alert({
+            title: "地震警報",
+            message: "緊急地震速報<br>岩手県で地震発生。強い揺れに備えて下さい（気象庁）"
+        });
+    }, 1000);*/
 });

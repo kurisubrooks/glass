@@ -1,0 +1,26 @@
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    min-width: 88px;
+    padding: 6px 20px;
+    font: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #4DB6AC;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+
+    -webkit-transition: background 0.05s, -webkit-transform 0.05s;
+    transition: background 0.05s, transform 0.05s;
+}
+
+button:hover {
+    background: rgba(180, 180, 180, 0.08);
+}
+
+button:active {
+    background: rgba(180, 180, 180, 0.14);
+}

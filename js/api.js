@@ -34,12 +34,12 @@ var OS = function() {
                 });
             });*/
 
-        
+
         // Build Window
         $window.addClass((object.theme) ? object.theme : "light");
         $title.text(object.title);
         $content.height(object.height);
-        $content.width(object.width);            
+        $content.width(object.width);
         $page.html('<iframe src="' + $url + '" width="100%" height="100%" frameBorder="0"></iframe>');
 
         //$controls.append($ui_min);
@@ -61,7 +61,7 @@ var OS = function() {
         if (!windows[object.app]) windows[object.app] = {};
         if (!$("#" + object.app).hasClass("active")) $("#" + object.app).addClass("active");
         windows[object.app][$id] = true;
-        
+
         // Window Close
         $(document).delegate(".window#" + $id + " .controls #close", "click", function(e) {
             // Prevent Double Trigger
@@ -77,7 +77,7 @@ var OS = function() {
             // Remove Window Indicator if All Windows Closed
             if (_.every(_.values(windows[object.app]), function(v) {return !v;})) $("#" + object.app).removeClass("active");
         });
-    }
+    };
 
     this.Notification = function(object) {
         var $id = guid();
@@ -105,12 +105,12 @@ var OS = function() {
         $notification.append($text_container);
         $notifications.append($notification);
 
-        setTimeout(function() {
+        /*setTimeout(function() {
             $notification.fadeOut("fast", function() {
                 $notification.remove();
             });
-        }, 8000);
-    }
+        }, 8000);*/
+    };
 
     this.Alert = function(object) {
         var $id = guid();
@@ -120,7 +120,7 @@ var OS = function() {
         var $title =            $('<div class="title"></div>');
         var $message =          $('<div class="message"></div>');
         var $action =           $('<div class="action"></div>');
-        var $action_btn =           $('<button class="btn">OK</button>');
+        var $action_btn =           $('<button>OK</button>');
 
         // Build Alert
         $title.text(object.title);
@@ -147,8 +147,8 @@ var OS = function() {
                 $("#" + $alert_id).remove();
             });
         });
-    }
-}
+    };
+};
 
 function guid() {
     function S4() { return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1); }
