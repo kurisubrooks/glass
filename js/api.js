@@ -1,13 +1,13 @@
-var windows = {};
-var notifications = {};
-
-var OS = function() {
+window.OS = function() {
     var $overlay = $(".overlay");
     var $windows = $(".windows");
     var $alerts = $(".alerts");
     var $notifications = $(".breadbox");
     var $app_path = "./apps/";
     var $this = this;
+
+    windows = {};
+    notifications = {};
 
     this.Window = function(object) {
         var $id = guid();
