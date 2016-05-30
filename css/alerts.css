@@ -1,7 +1,7 @@
-.desktop .alerts .alert {
+.alerts .alert {
     position: absolute;
-    background: #333333;
-    color: rgb(255, 255, 255);
+    background: #FFFFFF;
+    color: #212121;
     font-size: 18px;
     z-index: 1001;
     width: 365px;
@@ -12,20 +12,73 @@
     border-radius: 2px;
 }
 
-.desktop .alerts .alert .title {
-    color: rgba(255, 255, 255, 1);
-    text-align: center;
-    padding: 1em 0.7em 0;
+.alerts .alert .title {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    padding: 24px 24px 20px;
 }
 
-.desktop .alerts .alert .message {
-    color: rgba(255, 255, 255, 0.8);
-    padding: 1em 0.7em;
+.alerts .alert .message {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 0 24px 24px;
 }
 
-.desktop .alerts .alert .action {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+.alerts .alert .action.left {
+    text-align: left;
+    margin-right: 8px;
+}
+
+.alerts .alert .action.middle {
     text-align: center;
+    margin: 0 4px;
+}
+
+.alerts .alert .action.right {
+    text-align: right;
+    margin-left: 8px;
+}
+
+.alerts .alert .action {
+    /*border-top: 1px solid rgba(255, 255, 255, 0.15);*/
+    text-align: right;
+    margin-left: 8px;
     line-height: 22px;
-    padding: 0.5em;
+    padding: 8px;
+}
+
+
+/*
+// Light
+*/
+
+.alerts .alert.light {
+    background: #FFFFFF;
+    color: #212121;
+}
+
+.alerts .alert.light .title {
+    color: rgba(0, 0, 0, 1);
+}
+
+.alerts .alert.light .message {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/*
+// Dark
+*/
+
+.alerts .alert.dark {
+    background: #212121;
+    color: #333333;
+}
+
+.alerts .alert.dark .title {
+    color: rgba(255, 255, 255, 1);
+}
+
+.alerts .alert.dark .message {
+    color: rgba(255, 255, 255, 0.7);
 }

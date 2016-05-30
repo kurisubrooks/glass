@@ -2,25 +2,58 @@ button {
     -webkit-appearance: none;
     -moz-appearance: none;
     background: transparent;
-    min-width: 88px;
-    padding: 6px 20px;
+    height: 36px;
+    min-width: 68px;
+    padding: 6px 8px;
     font: inherit;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 15px;
     text-transform: uppercase;
-    color: #4DB6AC;
+    border-radius: 2px;
+    color: #2196F3;
     border: none;
     cursor: pointer;
-    border-radius: 2px;
 
     -webkit-transition: background 0.05s, -webkit-transform 0.05s;
     transition: background 0.05s, transform 0.05s;
 }
 
-button:hover {
-    background: rgba(180, 180, 180, 0.08);
+/*
+// Light
+*/
+
+button.light {
+    color: #2196F3;
 }
 
-button:active {
-    background: rgba(180, 180, 180, 0.14);
+button:hover, button.light:hover {
+    background: rgba(153, 153, 153, 0.2);
+}
+
+button:active, button.light:active {
+    background: rgba(153, 153, 153, 0.4);
+}
+
+button.disabled, button.light.disabled {
+    color: rgba(0, 0, 0, 0.26);
+}
+
+/*
+// Dark
+*/
+
+button.dark {
+    color: #4DB6AC;
+}
+
+button.dark:hover {
+    background: rgba(204, 204, 204, 0.1);
+}
+
+button.dark:active {
+    background: rgba(204, 204, 204, 0.2);
+}
+
+button.dark.disabled {
+    color: rgba(255, 255, 255, 0.3);
 }
