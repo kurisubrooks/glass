@@ -6,10 +6,16 @@
     <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
     <link href="../../css/core.css" rel="stylesheet">
     <style>
-        .omnibar {
-            background: #EEE;
+        input {
+            font: inherit;
         }
-        
+
+        .omnibar {
+            width: calc(100% - 28px);
+            background: #EEE;
+            position: fixed;
+        }
+
         .omnibar input {
             font: inherit;
             font-size: 14px;
@@ -21,7 +27,7 @@
     </style>
     <script>
         var win_location = window.location.href;
-        
+
         $(document).ready(function() {
             /*setInterval(function() {
                 if (win_location != window.location.href) {
@@ -29,7 +35,7 @@
                     win_location = window.location.href;
                 }
             }, 1000);*/
-            
+
             $(".send").submit(function() {
                 $("iframe").attr("src", $("#url").val());
                 $("#url").attr("placeholder", $("#url").val());
@@ -45,8 +51,8 @@
             <input type="text" placeholder="http://" id="url">
         </form>
     </div>
-    
+
     <iframe src="../google/index.html" frameBorder="0" width="100%" height="100%"></iframe>
-    
+
 </body>
 </html>
