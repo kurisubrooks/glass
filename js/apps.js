@@ -3,6 +3,7 @@ OS.apps = [
         title: "Browser",
         app: "browser",
         theme: "light",
+        taskbar: true,
         height: 480,
         width: 800
     },
@@ -19,19 +20,21 @@ OS.apps = [
         theme: "light",
         height: 420,
         width: 700
-    }/*,
+    },
     {
-        title: "Terminal",
-        app: "terminal",
-        theme: "dark",
+        title: "Weather",
+        app: "weather",
+        theme: "light",
+        taskbar: true,
         height: 400,
         width: 700
-    }*/
+    }
 ];
 
 $(document).ready(function() {
     _.forEach(_.sortBy(OS.apps, function(o) { return o.title; }), function(object) {
         var $path = "./apps/";
+        var $taskbar = $(".toolbar .apps");
         var $launcher = $(".launcher");
         var $app_id = "app_" + object.app;
         var $img_path = $path + object.app + "/app.png";
@@ -47,7 +50,9 @@ $(document).ready(function() {
         $app.append($title);
         $launcher.append($app);
 
-        $(document).delegate("[id^='" + $app_id + "']", "click", function(e) {
+        if (object.taskbar) $taskbar.append('<span id="' + $app_id + '"><img src="' + $img_path + '" height="32px"></span>');
+
+        $("[id^='" + $app_id + "']").click(function(e) {
             e.stopImmediatePropagation();
             new OS().Window(object);
         });
