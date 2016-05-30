@@ -13,7 +13,7 @@ html, body {
     margin: 0;
     font-family: "Roboto", "Noto Sans Japanese", sans-serif;
     overflow: hidden;
-    color: #555;
+    color: #555555;
 }
 
 a {
@@ -55,15 +55,15 @@ button:focus { outline: none; }
 }
 
 ::-webkit-scrollbar-button { display: none; }
-::-webkit-scrollbar-corner { background: #EEE; }
-::-webkit-resizer { background: #EEE; }
+::-webkit-scrollbar-corner { background: #EEEEEE; }
+::-webkit-resizer { background: #EEEEEE; }
 
 ::-webkit-scrollbar-track {
-    background: #EEE;
+    background: #EEEEEE;
     /*border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;*/
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #DDD;
+    background: #DDDDDD;
 }
