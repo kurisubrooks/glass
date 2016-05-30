@@ -6,11 +6,13 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="./css/core.css" rel="stylesheet">
-    <link href="./css/buttons.css" rel="stylesheet">
-    <link href="./css/toolbar.css" rel="stylesheet">
     <link href="./css/windows.css" rel="stylesheet">
     <link href="./css/notifications.css" rel="stylesheet">
     <link href="./css/alerts.css" rel="stylesheet">
+    <link href="./css/toolbar.css" rel="stylesheet">
+    <link href="./css/metabar.css" rel="stylesheet">
+    <link href="./css/launcher.css" rel="stylesheet">
+    <link href="./css/buttons.css" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -62,21 +64,34 @@
                 <div class="trigger" id="meta_launcher">
                     <span id="meta_time">ERROR</span>
                     <span id="meta_notif"><i class="material-icons">notifications</i></span>
-                    <span id="meta_user"><img src="./kurisu.png" width="24px"></span>
+                    <span id="meta_user"><img src="./users/kurisu/avatar.png" width="24px"></span>
                 </div>
 
                 <!-- Metabar Action -->
                 <div class="metabar-popover">
                     <ol>
-                        <li>TO-DO</li>
+                        <li id="metapop_user">
+                            <div id="avatar">
+                                <img src="./users/kurisu/avatar.png">
+                            </div>
+                            <div id="name">
+                                Kurisu Brooks
+                            </div>
+                            <div id="info">
+                                kurisubrooks@gmail.com
+                            </div>
+                        </li>
+                        <!--<li class="separator"></li>
+                        <li id="app_settings">Settings</li>-->
+                        <!--<li>TO-DO</li>
                         <li class="separator"></li>
                         <li>Popover Propogation</li>
                         <li>Window Focus</li>
-                        <li>Metabar</li>
                         <li>Right-Click (contextmenu) Menu</li>
                         <li>Dynamic Taskbar Apps (open windows)</li>
                         <li><strike>Notification Interaction</strike></li>
                         <li><strike>Scrollbar</strike></li>
+                        <li><strike>Metabar</strike></li>-->
                     </ol>
                 </div>
             </div>
