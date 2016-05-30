@@ -32,7 +32,7 @@ OS.apps = [
 ];
 
 $(document).ready(function() {
-    _.forEach(_.sortBy(OS.apps, function(o) { return o.title; }), function(object) {
+    _.forEach(_.sortBy(OS.apps, 'title'), function(object) {
         var $path = "./apps/";
         var $taskbar = $(".toolbar .apps");
         var $launcher = $(".launcher");

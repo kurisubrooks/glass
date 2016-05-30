@@ -1,3 +1,8 @@
+var windows = {};
+var notifications = {};
+
+var activeWindows = [];
+
 window.OS = function() {
     var $overlay = $(".overlay");
     var $windows = $(".windows");
@@ -5,9 +10,6 @@ window.OS = function() {
     var $notifications = $(".breadbox");
     var $app_path = "./apps/";
     var $this = this;
-
-    windows = {};
-    notifications = {};
 
     this.Window = function(object) {
         var $id = guid();
@@ -25,7 +27,7 @@ window.OS = function() {
         var $page =             $('<div class="page"></div>');
 
         // Build Window
-        $window.addClass((object.theme) ? object.theme : "light");
+        $window.addClass(object.theme || "light");
         $title.text(object.title);
         $content.height(object.height);
         $content.width(object.width);
@@ -42,9 +44,22 @@ window.OS = function() {
         $windows.append($window);
 
         // Window Positioning
-        $("#" + $id).draggable({ handle: $("#" + $id + " .menubar"), scroll: false, containment: "parent" });
-        $("#" + $id).resizable();
-        $("#" + $id).position({ of: $windows, my: "center center", at: "center center" });
+        $window.draggable({
+            handle: $menubar,
+            scroll: false,
+            containment: "parent",
+            start: function () {
+                _.pull(activeWindows, $id);
+                activeWindows.push($id);
+                updateZIndexes(activeWindows);
+            }
+        });
+        $window.resizable();
+        $window.position({
+            of: $windows,
+            my: "center center",
+            at: "center center"
+        });
 
         // Window Activation
         if (!windows[object.app]) windows[object.app] = {};
@@ -56,12 +71,12 @@ window.OS = function() {
             // Prevent Double Trigger
             e.stopImmediatePropagation();
 
-            // Get Window ID
-            var $window_id = $(this).closest(".window").attr("id");
-
             // Destroy Window
-            $("#" + $window_id).remove();
-            windows[object.app][$window_id] = false;
+            $window.remove();
+            windows[object.app][$id] = false;
+
+            // Remove from list of active windows
+            _.pull(activeWindows, $id);
 
             // Remove Window Indicator if All Windows Closed
             /*if (_.every(_.values(windows[object.app]), function(v) {return !v;})) $("#" + object.app).removeClass("active");*/
@@ -97,9 +112,7 @@ window.OS = function() {
 
         // Set Timeout
         notifications[$id] = setTimeout(function() {
-            $notification.fadeOut("fast", function() {
-                $notification.remove();
-            });
+            fadeRemove($notification);
         }, 8000);
 
         // Notification Hover
@@ -112,9 +125,7 @@ window.OS = function() {
                 clearTimeout(notifications[$notif_id]);
             } else if (e.type == "mouseleave") {
                 delete notifications[$notif_id];
-                $notif.fadeOut("fast", function() {
-                    $notif.remove();
-                });
+                fadeRemove($notif);
             }
         });
 
@@ -132,9 +143,7 @@ window.OS = function() {
 
             // Destroy Notification
             delete notifications[$notif_id];
-            $notif.fadeOut("fast", function() {
-                $notif.remove();
-            });
+            fadeRemove($notif);
         });
     };
 
@@ -170,9 +179,7 @@ window.OS = function() {
 
             // Destroy Alert
             $overlay.fadeOut("fast");
-            $("#" + $alert_id).fadeOut("fast", function() {
-                $("#" + $alert_id).remove();
-            });
+            fadeRemove($("#" + $alert_id));
         });
     };
 };
@@ -181,6 +188,23 @@ function guid() {
     function S4() { return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1); }
     return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 }
+
+
+function fadeRemove(el) {
+    el.fadeOut("fast", function() {
+        el.remove();
+    });
+}
+
+
+function updateZIndexes(ids) {
+    var baseIndex = 100; // the z-index to start with
+    for (var i = 0; i < ids.length; ++i) {
+        var id = ids[i];
+        $('#' + id).css('z-index', baseIndex + i);
+    }
+}
+
 
 function safe(string) {
     console.log(string);
