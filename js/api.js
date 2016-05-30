@@ -149,7 +149,7 @@ window.OS = function() {
 
     this.Alert = function(object) {
         var $id = guid();
-        var $theme = (object.theme) ? object.theme : "light";
+        var $theme = object.theme || "light";
 
         // Alert Template
         var $alert =        $('<div class="alert ' + $theme + '" id="' + $id + '"></div>');
@@ -174,12 +174,9 @@ window.OS = function() {
             // Prevent Double Trigger
             e.stopImmediatePropagation();
 
-            // Get Alert ID
-            var $alert_id = $(this).closest(".alert").attr("id");
-
             // Destroy Alert
             $overlay.fadeOut("fast");
-            fadeRemove($("#" + $alert_id));
+            fadeRemove($alert);
         });
     };
 };
