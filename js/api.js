@@ -1,4 +1,5 @@
 var windows = {};
+var notifications = {};
 
 var OS = function() {
     var $overlay = $(".overlay");
@@ -22,18 +23,6 @@ var OS = function() {
         var $ui_close =             $('<span id="close"><i class="material-icons">close</i></span>');
         var $content =      $('<div class="content"></div>');
         var $page =             $('<div class="page"></div>');
-
-        /*$.ajax({ url: $url })
-            .done(function(data) {
-                build(data);
-            })
-            .fail(function() {
-                $this.Alert({
-                    title: "Error",
-                    message: "Failed to open " + object.title + ".app, refer to the JavaScript console for information"
-                });
-            });*/
-
 
         // Build Window
         $window.addClass((object.theme) ? object.theme : "light");
@@ -59,11 +48,11 @@ var OS = function() {
 
         // Window Activation
         if (!windows[object.app]) windows[object.app] = {};
-        if (!$("#" + object.app).hasClass("active")) $("#" + object.app).addClass("active");
+        //if (!$("#" + object.app).hasClass("active")) $("#" + object.app).addClass("active");
         windows[object.app][$id] = true;
 
         // Window Close
-        $(document).delegate(".window#" + $id + " .controls #close", "click", function(e) {
+        $(".window#" + $id + " .controls #close").click(function(e) {
             // Prevent Double Trigger
             e.stopImmediatePropagation();
 
@@ -75,12 +64,13 @@ var OS = function() {
             windows[object.app][$window_id] = false;
 
             // Remove Window Indicator if All Windows Closed
-            if (_.every(_.values(windows[object.app]), function(v) {return !v;})) $("#" + object.app).removeClass("active");
+            /*if (_.every(_.values(windows[object.app]), function(v) {return !v;})) $("#" + object.app).removeClass("active");*/
         });
     };
 
     this.Notification = function(object) {
         var $id = guid();
+        var $type = (object.type) ? object.type : 0;
 
         // Notification Template
         var $notification =     $('<div class="notification" id="' + $id + '"></div>');
@@ -105,22 +95,59 @@ var OS = function() {
         $notification.append($text_container);
         $notifications.append($notification);
 
-        setTimeout(function() {
+        // Set Timeout
+        notifications[$id] = setTimeout(function() {
             $notification.fadeOut("fast", function() {
                 $notification.remove();
             });
         }, 8000);
+
+        // Notification Hover
+        $(".notification#" + $id).hover(function(e) {
+            // Get Notification ID
+            var $notif_id = $(this).closest(".notification").attr("id");
+            var $notif = $(".notification#" + $notif_id);
+
+            if (e.type == "mouseenter") {
+                clearTimeout(notifications[$notif_id]);
+            } else if (e.type == "mouseleave") {
+                delete notifications[$notif_id];
+                $notif.fadeOut("fast", function() {
+                    $notif.remove();
+                });
+            }
+        });
+
+        // Notification Click
+        $(".notification#" + $id).click(function(e) {
+            // Prevent Double Trigger
+            e.stopImmediatePropagation();
+
+            // Get Notification ID
+            var $notif_id = $(this).closest(".notification").attr("id");
+            var $notif = $(".notification#" + $notif_id);
+
+            // Stop Timeout Timer
+            clearTimeout(notifications[$notif_id]);
+
+            // Destroy Notification
+            delete notifications[$notif_id];
+            $notif.fadeOut("fast", function() {
+                $notif.remove();
+            });
+        });
     };
 
     this.Alert = function(object) {
         var $id = guid();
+        var $theme = (object.theme) ? object.theme : "light";
 
         // Alert Template
-        var $alert =        $('<div class="alert dark" id="' + $id + '"></div>');
+        var $alert =        $('<div class="alert ' + $theme + '" id="' + $id + '"></div>');
         var $title =            $('<div class="title"></div>');
         var $message =          $('<div class="message"></div>');
         var $action =           $('<div class="action"></div>');
-        var $action_btn =           $('<button class="dark">OK</button>');
+        var $action_btn =           $('<button class="' + $theme + '">OK</button>');
 
         // Build Alert
         $title.text(object.title);
@@ -134,7 +161,7 @@ var OS = function() {
         $overlay.fadeIn("fast");
         $alert.fadeIn("fast");
 
-        $(document).delegate(".alert#" + $id + " .action button", "click", function(e) {
+        $(".alert#" + $id + " .action button").click(function(e) {
             // Prevent Double Trigger
             e.stopImmediatePropagation();
 
