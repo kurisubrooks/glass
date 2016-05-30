@@ -1,0 +1,92 @@
+.toolbar .metabar {
+    float: right;
+}
+
+.toolbar .metabar .trigger {
+    display: inline-flex;
+    vertical-align: middle;
+    padding: 0.35em;
+    cursor: pointer;
+    border-radius: 2px;
+    /*background: #303030;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);*/
+}
+
+.toolbar .metabar .trigger:hover {
+    background: #303030;
+}
+
+.toolbar .metabar .trigger span {
+    padding-top: 3px;
+    height: 24px;
+    margin: 0 8px;
+}
+
+.toolbar .metabar .trigger #meta_time {
+    padding: 6px 0;
+    height: 20px;
+}
+
+.toolbar .metabar .trigger #meta_user img {
+    border-radius: 50%;
+}
+
+.toolbar .metabar .metabar-popover {
+    display: none;
+    width: 360px;
+    height: auto;
+    position: absolute;
+    color: #000000;
+    background: #FFFFFF;
+    z-index: 100;
+    bottom: 4em;
+    right: 0.6em;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    margin: 0 auto;
+    cursor: default;
+}
+
+.toolbar .metabar .metabar-popover ol,
+.toolbar .metabar .metabar-popover li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toolbar .metabar .metabar-popover li {
+    padding: 1em;
+    cursor: pointer;
+}
+
+.toolbar .metabar .metabar-popover li.separator {
+    height: 1px;
+    border-top: 1px solid #DDDDDD;
+    padding: 0;
+    margin: 2px 0;
+    cursor: default;
+}
+
+.toolbar .metabar .metabar-popover #metapop_user {
+
+}
+
+.toolbar .metabar .metabar-popover #metapop_user #avatar {
+    float: left;
+    margin-right: 1em;
+}
+
+.toolbar .metabar .metabar-popover #metapop_user #avatar img {
+    border-radius: 50%;
+    width: 48px;
+}
+
+.toolbar .metabar .metabar-popover #metapop_user #name {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.toolbar .metabar .metabar-popover #metapop_user #info {
+    color: rgba(0, 0, 0, 0.6);
+}
