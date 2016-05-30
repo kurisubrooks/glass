@@ -1,7 +1,7 @@
 .toolbar {
     background: #262626;
     font-size: 1.1em;
-    color: #FFF;
+    color: #FFFFFF;
     padding: 0.5em;
     position: absolute;
     z-index: 2;
@@ -48,23 +48,32 @@
 
 }
 
+/*
+// App Launcher
+*/
+
 .toolbar .launcher {
     display: none;
-    width: 360px;
-    height: 400px;
-    padding: 1em;
     position: absolute;
-    color: #000;
-    background: #FFF;
+    overflow-x: hidden;
+    overflow-y: scroll;
     z-index: 100;
     bottom: 4em;
     left: 0.6em;
+    width: 360px;
+    height: 400px;
+    background: #FFFFFF;
+    color: #000000;
+    padding: 1em;
+    margin: 0 auto;
     box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);
     border-radius: 2px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    margin: 0 auto;
     cursor: default;
+}
+
+.toolbar .launcher::-webkit-scrollbar-track {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
 .toolbar .launcher .app {
@@ -88,11 +97,15 @@
 
 .toolbar .launcher .app .app-title {
     margin-top: 5px;
-    //font-family: "Roboto Condensed", sans-serif;
+    /*font-family: "Roboto Condensed", sans-serif;*/
     font-weight: 400;
     font-size: 12px;
-    color: #555;
+    color: #555555;
 }
+
+/*
+// Metabar
+*/
 
 .toolbar .metabar {
     float: right;
@@ -113,8 +126,9 @@
 }
 
 .toolbar .metabar .trigger span {
+    padding-top: 3px;
     height: 24px;
-    margin: 0 0.25em;
+    margin: 0 8px;
 }
 
 .toolbar .metabar .trigger #meta_time {
@@ -122,13 +136,17 @@
     height: 20px;
 }
 
+.toolbar .metabar .trigger #meta_user img {
+    border-radius: 50%;
+}
+
 .toolbar .metabar .metabar-popover {
     display: none;
     width: 360px;
     height: auto;
     position: absolute;
-    color: #000;
-    background: #FFF;
+    color: #000000;
+    background: #FFFFFF;
     z-index: 100;
     bottom: 4em;
     right: 0.6em;
@@ -152,7 +170,7 @@
 
 .desktop .toolbar .metabar .metabar-popover li.separator {
     height: 1px;
-    border-top: 1px solid #DDD;
+    border-top: 1px solid #DDDDDD;
     padding: 0;
     margin: 2px 0;
     cursor: default;
