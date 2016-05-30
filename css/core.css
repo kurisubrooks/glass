@@ -61,10 +61,8 @@ button:focus { outline: none; }
 
 ::-webkit-scrollbar-track {
     background: #EEE;
-}
-
-::-webkit-scrollbar-track-piece {
-
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
