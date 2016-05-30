@@ -1,3 +1,7 @@
+@import "https://fonts.googleapis.com/css?family=Roboto:500,400,300";
+@import "https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300";
+@import "https://fonts.googleapis.com/earlyaccess/notosansjapanese.css";
+
 * {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -41,4 +45,28 @@ button:focus { outline: none; }
     font-family: "Roboto", "Noto Sans Japanese", sans-serif;
     background: url(../wallpapers/wally.png) no-repeat center center fixed;
     background-size: cover;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    padding: 2px 0;
+    width: 8px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+::-webkit-scrollbar-button { display: none; }
+::-webkit-scrollbar-corner { display: none; }
+::-webkit-resizer { display: none; }
+
+::-webkit-scrollbar-track {
+    background: #EEE;
+}
+
+::-webkit-scrollbar-track-piece {
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: #DDD;
 }
