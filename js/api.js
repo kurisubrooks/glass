@@ -22,7 +22,7 @@ window.OS = function() {
         var $controls =         $('<div class="controls"></div>');
         var $ui_min =               $('<span id="minimize"><i class="material-icons">remove</i></span>');
         var $ui_max =               $('<span id="maximize"><i class="material-icons">add</i></span>');
-        var $ui_close =             $('<span id="close"><i class="material-icons">close</i></span>');
+        var $ui_close =             $('<span class="close"><i class="material-icons">close</i></span>');
         var $content =      $('<div class="content"></div>');
         var $page =             $('<div class="page"></div>');
 
@@ -67,7 +67,7 @@ window.OS = function() {
         windows[object.app][$id] = true;
 
         // Window Close
-        $(".window#" + $id + " .controls #close").click(function(e) {
+        $(".window#" + $id + " .controls .close").click(function(e) {
             // Prevent Double Trigger
             e.stopImmediatePropagation();
 
