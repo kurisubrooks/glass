@@ -16,13 +16,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 5px;
-    cursor: default;
+    cursor: pointer;
     transition: background 0.1s;
 }
 
 .desktop .breadbox .notification:hover,
 .desktop .breadbox .notification:active {
-    background: #FFF;
+    background: #FFFFFF;
 }
 
 .desktop .breadbox .notification .image {
