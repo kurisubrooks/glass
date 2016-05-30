@@ -116,11 +116,11 @@ var OS = function() {
         var $id = guid();
 
         // Alert Template
-        var $alert =        $('<div class="alert" id="' + $id + '"></div>');
+        var $alert =        $('<div class="alert dark" id="' + $id + '"></div>');
         var $title =            $('<div class="title"></div>');
         var $message =          $('<div class="message"></div>');
         var $action =           $('<div class="action"></div>');
-        var $action_btn =           $('<button>OK</button>');
+        var $action_btn =           $('<button class="dark">OK</button>');
 
         // Build Alert
         $title.text(object.title);
