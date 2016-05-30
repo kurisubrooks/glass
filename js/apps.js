@@ -12,14 +12,14 @@ var apps = [
         theme: "light",
         height: 480,
         width: 800
-    }/*,
+    },
     {
         title: "Settings",
         app: "settings",
         theme: "light",
         height: 420,
         width: 700
-    },
+    }/*,
     {
         title: "Terminal",
         app: "terminal",
