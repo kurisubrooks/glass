@@ -54,11 +54,11 @@ $(window).load(function() {
 
         // Alert
         /*new OS().Alert({
-            //title: "地震警報",
-            //message: "緊急地震速報<br>岩手県で地震発生。強い揺れに備えて下さい（気象庁）"
-            title: "System Error",
-            theme: "dark",
-            message: "Error occured in the main process. Check the JavaScript console for more details."
+            title: "地震警報",
+            message: "緊急地震速報<br>岩手県で地震発生。強い揺れに備えて下さい（気象庁）"
+            //title: "System Error",
+            theme: "dark"
+            //message: "Error occured in the main process. Check the JavaScript console for more details."
         });*/
     }, 1000);
 });
