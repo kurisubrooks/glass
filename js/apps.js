@@ -1,5 +1,5 @@
 OS.apps = [
-    {
+    /*{
         title: "Browser",
         app: "browser",
         theme: "light",
@@ -10,19 +10,19 @@ OS.apps = [
         app: "google",
         theme: "light",
         taskbar: false
-    },
+    },*/
     {
         title: "Settings",
         app: "settings",
         theme: "light",
         taskbar: false
-    },
+    }/*,
     {
         title: "Weather",
         app: "weather",
         theme: "light",
         taskbar: false
-    }
+    }*/
 ];
 
 $(document).ready(function() {
