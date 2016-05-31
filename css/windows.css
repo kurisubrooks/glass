@@ -56,17 +56,17 @@
 }
 
 .window .content {
-    min-height: 400px;
-    min-width: 700px;
+    /*min-height: 400px;
+    min-width: 700px;*/
+    overflow: scroll;
     height: 100%;
     width: 100%;
 }
 
 .window .content .page {
-    min-height: 400px;
+    /*min-height: 400px;
     min-width: 700px;
-    height: inherit;
-    width: inherit;
+    overflow: scroll;*/
 }
 
 .window .content .page iframe {
