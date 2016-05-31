@@ -5,6 +5,7 @@
 * {
     -webkit-user-select: none;
     -moz-user-select: none;
+    box-sizing: border-box;
 }
 
 html, body {

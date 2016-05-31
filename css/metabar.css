@@ -5,11 +5,14 @@
 .toolbar .metabar .trigger {
     display: inline-flex;
     vertical-align: middle;
+    height: calc(32px + 0.7em);
     padding: 0.35em;
     cursor: pointer;
     border-radius: 2px;
     /*background: #303030;
     box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.15);*/
+    -webkit-transition: background 0.04s, -webkit-transform 0.04s;
+    transition: background 0.04s, transform 0.04s;
 }
 
 .toolbar .metabar .trigger.active {
@@ -36,7 +39,7 @@
 }
 
 .toolbar .metabar .trigger .separator {
-    padding-top: 7px;
+    height: 32px;
     width: 1px;
     border-right: 1px solid #444;
 }
@@ -109,8 +112,8 @@
     padding: 5px 0 2px;
     text-align: center;
     width: 31%;
-    -webkit-transition: background 0.05s, -webkit-transform 0.05s;
-    transition: background 0.05s, transform 0.05s;
+    -webkit-transition: background 0.04s, -webkit-transform 0.04s;
+    transition: background 0.04s, transform 0.04s;
 }
 
 .toolbar .metabar .metabar-popover .meta_sysbtn div:hover {

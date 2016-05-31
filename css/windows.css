@@ -1,11 +1,11 @@
-.desktop .windows {
+.windows {
     position: absolute;
     width: 100%;
     height: calc(100% - 3.4em);
     z-index: 1;
 }
 
-.desktop .window {
+.window {
     position: absolute;
     z-index: 1;
     min-width: 400px;
@@ -16,15 +16,15 @@
     cursor: default;
 }
 
-.desktop .window .menubar {
+.window .menubar {
     padding: 0.5em;
-    height: 24px;
+    height: calc(24px + 1em);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-bottom: 1px solid #E0E0E0;
 }
 
-.desktop .window .menubar .title {
+.window .menubar .title {
     float: left;
     font-weight: 500;
     height: 24px;
@@ -32,33 +32,44 @@
     margin-left: 5px;
 }
 
-.desktop .window .menubar .controls {
+.window .menubar .controls {
     float: right;
     display: inline-flex;
     vertical-align: middle;
 }
 
-.desktop .window .menubar .controls span {
+.window .menubar .controls span {
     height: 24px;
     margin: 0 2px;
     cursor: pointer;
+    border-radius: 2px;
+    -webkit-transition: background 0.04s, -webkit-transform 0.04s;
+    transition: background 0.04s, transform 0.04s;
 }
 
-.desktop .window .content {
+.window .menubar .controls span:hover {
+    background: rgba(153, 153, 153, 0.2);
+}
+
+.window .menubar .controls span:active {
+    background: rgba(153, 153, 153, 0.4);
+}
+
+.window .content {
     min-height: 400px;
     min-width: 700px;
     height: 100%;
     width: 100%;
 }
 
-.desktop .window .content .page {
+.window .content .page {
     min-height: 400px;
     min-width: 700px;
     height: inherit;
     width: inherit;
 }
 
-.desktop .window .content .page iframe {
+.window .content .page iframe {
     min-height: 400px;
     min-width: 700px;
     height: inherit;
