@@ -4,18 +4,25 @@ $(document).ready(function() {
         meta: false
     };
 
-    // Disable Right Click
+    // Image Preloader
+    $.preload_img = function() {
+        for (var i = 0; i < arguments.length; i++) {
+            $("<img />").attr("src", arguments[i]);
+        }
+    };
+
+    // Right Click (Context Menu)
     $(document).on("contextmenu", function(e) {
         //e.preventDefault();
         // return false;
     });
 
-    $(document).bind("click", function(e) {
+    $(document).click(function(e) {
         // return false;
     });
 
     // App Launcher
-    $("#app_launcher").click(function() {
+    $("#app_launcher").click(function(e) {
         if (popovers.apps) {
             $(".launcher").fadeOut(25);
             popovers.apps = false;

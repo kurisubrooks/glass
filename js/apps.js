@@ -3,31 +3,25 @@ OS.apps = [
         title: "Browser",
         app: "browser",
         theme: "light",
-        taskbar: true,
-        height: 480,
-        width: 800
+        taskbar: true
     },
     {
         title: "Search",
         app: "google",
         theme: "light",
-        height: 480,
-        width: 800
+        taskbar: false
     },
     {
         title: "Settings",
         app: "settings",
         theme: "light",
-        height: 420,
-        width: 700
+        taskbar: false
     },
     {
         title: "Weather",
         app: "weather",
         theme: "light",
-        taskbar: true,
-        height: 400,
-        width: 700
+        taskbar: false
     }
 ];
 
@@ -44,6 +38,8 @@ $(document).ready(function() {
         var $icon =     $('<div class="app-icon"></div>');
         var $img =          $('<img src="' + $img_path + '" height="48px">');
         var $title =    $('<div class="app-title"></div>').text(object.title);
+
+        $.preload_img($img_path);
 
         $icon.append($img);
         $app.append($icon);
