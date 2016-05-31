@@ -25,10 +25,12 @@ $(document).ready(function() {
     $("#app_launcher").click(function(e) {
         if (popovers.apps) {
             $(".launcher").fadeOut(25);
+            $("#app_launcher").removeClass("active");
             popovers.apps = false;
         } else if (!popovers.apps) {
             //$(".launcher").fadeIn(100).animate({ "bottom": "6em" }, {duration: 'slow', queue: false});
             $(".launcher").fadeIn(50);
+            $("#app_launcher").addClass("active");
             popovers.apps = true;
         }
     });
@@ -37,12 +39,12 @@ $(document).ready(function() {
     $("#meta_launcher").click(function() {
         if (popovers.meta) {
             $(".metabar-popover").fadeOut(25);
-            popovers.meta = false;
             $(".metabar .trigger").removeClass("active");
+            popovers.meta = false;
         } else if (!popovers.meta) {
             $(".metabar-popover").fadeIn(50);
-            popovers.meta = true;
             $(".metabar .trigger").addClass("active");
+            popovers.meta = true;
         }
     });
 
