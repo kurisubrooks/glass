@@ -45,7 +45,7 @@ window.OS = function() {
                 $window.remove();
                 $this.Alert({
                     title: "System Error",
-                    message: "Failed to open " + object.title + ".app, Check the JavaScript console for more details."
+                    message: "Failed to open " + object.app + ".app, Check the JavaScript console for more details."
                 });
             });
 
