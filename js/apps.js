@@ -1,5 +1,5 @@
 OS.apps = [
-    /*{
+    {
         title: "Browser",
         app: "browser",
         theme: "light",
@@ -10,26 +10,26 @@ OS.apps = [
         app: "google",
         theme: "light",
         taskbar: false
-    },*/
+    },
     {
         title: "Settings",
         app: "settings",
         theme: "light",
         taskbar: false
-    }/*,
+    },
     {
         title: "Weather",
         app: "weather",
         theme: "light",
         taskbar: false
-    }*/
+    }
 ];
 
 $(document).ready(function() {
     _.forEach(_.sortBy(OS.apps, 'title'), function(object) {
         var $path = "./apps/";
         var $taskbar = $(".toolbar .apps");
-        var $launcher = $(".launcher");
+        var $launcher = $(".launcher .applications");
         var $app_id = "app_" + object.app;
         var $img_path = $path + object.app + "/app.png";
         var $main_path = $path + object.app + "/index.html";
