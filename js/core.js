@@ -21,21 +21,29 @@ $(document).ready(function() {
         // return false;
     });
 
-    // App Launcher
+    // Open App Launcher
     $("#app_launcher").click(function(e) {
         if (popovers.apps) {
             $(".launcher").fadeOut(25);
             $("#app_launcher").removeClass("active");
             popovers.apps = false;
         } else if (!popovers.apps) {
-            //$(".launcher").fadeIn(100).animate({ "bottom": "6em" }, {duration: 'slow', queue: false});
             $(".launcher").fadeIn(50);
             $("#app_launcher").addClass("active");
             popovers.apps = true;
         }
     });
 
-    // Metabar Popover
+    // Close App Launcher on click
+    $(".launcher .applications .app, .launcher .categories span").click(function(e) {
+        console.log(e);
+
+        $(".launcher").fadeOut(25);
+        $("#app_launcher").removeClass("active");
+        popovers.apps = false;
+    });
+
+    // Open Metabar Popover
     $("#meta_launcher").click(function() {
         if (popovers.meta) {
             $(".metabar-popover").fadeOut(25);
