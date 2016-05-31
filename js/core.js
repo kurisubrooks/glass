@@ -38,9 +38,11 @@ $(document).ready(function() {
         if (popovers.meta) {
             $(".metabar-popover").fadeOut(25);
             popovers.meta = false;
+            $(".metabar .trigger").removeClass("active");
         } else if (!popovers.meta) {
             $(".metabar-popover").fadeIn(50);
             popovers.meta = true;
+            $(".metabar .trigger").addClass("active");
         }
     });
 
