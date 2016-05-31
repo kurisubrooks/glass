@@ -45,12 +45,24 @@
 }
 
 .desktop .window .content {
-    min-height: 180px;
+    min-height: 400px;
+    min-width: 700px;
+    height: 100%;
+    width: 100%;
 }
 
 .desktop .window .content .page {
-    height: 100%;
-    width: 100%;
+    min-height: 400px;
+    min-width: 700px;
+    height: inherit;
+    width: inherit;
+}
+
+.desktop .window .content .page iframe {
+    min-height: 400px;
+    min-width: 700px;
+    height: inherit;
+    width: inherit;
 }
 
 .window.light .menubar {

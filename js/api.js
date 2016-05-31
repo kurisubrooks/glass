@@ -29,8 +29,8 @@ window.OS = function() {
         // Build Window
         $window.addClass(object.theme || "light");
         $title.text(object.title);
-        $content.height(object.height);
-        $content.width(object.width);
+        //$content.height(object.height);
+        //$content.width(object.width);
         $page.html('<iframe src="' + $url + '" width="100%" height="100%" frameBorder="0"></iframe>');
 
         //$controls.append($ui_min);
@@ -48,13 +48,18 @@ window.OS = function() {
             handle: $menubar,
             scroll: false,
             containment: "parent",
-            start: function () {
+            start: function() {
                 _.pull(activeWindows, $id);
                 activeWindows.push($id);
                 updateZIndexes(activeWindows);
             }
         });
-        $window.resizable();
+        $window.resizable({
+            minHeight: 400,
+            minWidth: 700,
+            containment: "parent",
+            handles: "all"
+        });
         $window.position({
             of: $windows,
             my: "center center",

@@ -20,6 +20,7 @@ $(document).ready(function() {
             $(".launcher").fadeOut(25);
             popovers.apps = false;
         } else if (!popovers.apps) {
+            //$(".launcher").fadeIn(100).animate({ "bottom": "6em" }, {duration: 'slow', queue: false});
             $(".launcher").fadeIn(50);
             popovers.apps = true;
         }
