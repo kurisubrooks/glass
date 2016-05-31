@@ -1,9 +1,9 @@
-$(document).ready(function() {
-    var popovers = {
-        apps: false,
-        meta: false
-    };
+var popovers = {
+    apps: false,
+    meta: false
+};
 
+$(document).ready(function() {
     // Image Preloader
     $.preload_img = function() {
         for (var i = 0; i < arguments.length; i++) {
@@ -35,7 +35,7 @@ $(document).ready(function() {
     });
 
     // Close App Launcher on click
-    $(".launcher .applications .app, .launcher .categories span").click(function(e) {
+    $(".launcher .categories span").click(function(e) {
         console.log(e);
 
         $(".launcher").fadeOut(25);
