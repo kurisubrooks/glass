@@ -18,10 +18,13 @@ OS.apps = [
         taskbar: false
     },
     {
-        title: "Weather",
-        app: "weather",
+        title: "Window",
+        type: "inline",
+        app: "window",
         theme: "light",
-        taskbar: false
+        taskbar: true,
+        height: 400,
+        width: 700
     }
 ];
 
