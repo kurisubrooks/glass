@@ -25,6 +25,15 @@ OS.apps = [
         taskbar: true,
         height: 400,
         width: 700
+    },
+    {
+        title: "Window2",
+        type: "inline",
+        app: "window2",
+        theme: "light",
+        taskbar: true,
+        height: 400,
+        width: 700
     }
 ];
 
