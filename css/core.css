@@ -5,6 +5,11 @@
 * {
     -webkit-user-select: none;
     -moz-user-select: none;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -48,6 +53,10 @@ button:focus { outline: none; }
     background-size: cover;
 }
 
+.ui-icon-gripsmall-diagonal-se {
+    background: transparent;
+}
+
 ::-webkit-scrollbar {
     -webkit-appearance: none;
     padding: 2px 0;
@@ -61,8 +70,6 @@ button:focus { outline: none; }
 
 ::-webkit-scrollbar-track {
     background: #EEEEEE;
-    /*border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;*/
 }
 
 ::-webkit-scrollbar-thumb {
