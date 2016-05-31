@@ -13,10 +13,11 @@ window.OS = function() {
 
     this.Window = function(object) {
         var $id = guid();
+        var $data;
         var $url = $app_path + object.app + "/index.html";
 
         // Window Template
-        var $window =   $('<div class="window" id="' + $id + '"></div>');
+        var $window =   $('<div class="window" id="' + $id + '"></div>').hide();
         var $menubar =      $('<div class="menubar"></div>');
         var $title =            $('<div class="title"></div>');
         var $controls =         $('<div class="controls"></div>');
@@ -25,13 +26,36 @@ window.OS = function() {
         var $ui_close =             $('<span class="close"><i class="material-icons">close</i></span>');
         var $content =      $('<div class="content"></div>');
         var $page =             $('<div class="page"></div>');
+        var $frame =                $('<iframe src="' + $url + '" width="100%" height="100%" frameBorder="0"></iframe>');
+
+        $.ajax({ url: $url })
+            .done(function(data) {
+                $data = data;
+
+                if (object.type === "inline") {
+                    $page.append(data);
+                    $window.addClass("inline");
+                } else {
+                    $page.append($frame);
+                    $window.addClass("frame");
+                }
+
+                $window.show();
+            }).fail(function(error) {
+                $window.remove();
+                $this.Alert({
+                    title: "System Error",
+                    message: "Failed to open " + object.title + ".app, Check the JavaScript console for more details."
+                });
+            });
 
         // Build Window
         $window.addClass(object.theme || "light");
         $title.text(object.title);
-        //$content.height(object.height);
-        //$content.width(object.width);
-        $page.html('<iframe src="' + $url + '" width="100%" height="100%" frameBorder="0"></iframe>');
+        $content.css({
+            "height": object.height + "px" || 400,
+            "width": object.width + "px" || 700
+        });
 
         //$controls.append($ui_min);
         //$controls.append($ui_max);
@@ -54,17 +78,21 @@ window.OS = function() {
                 updateZIndexes(activeWindows);
             }
         });
+
         $window.resizable({
             minHeight: 400,
             minWidth: 700,
             containment: "parent",
-            handles: "all"
+            handles: "all",
+            alsoResize: $content
         });
+
         $window.position({
             of: $windows,
             my: "center center",
             at: "center center"
         });
+
         $window.focus();
 
         // Window Activation
@@ -72,13 +100,19 @@ window.OS = function() {
         //if (!$("#" + object.app).hasClass("active")) $("#" + object.app).addClass("active");
         windows[object.app][$id] = true;
 
+        $(".window#" + $id).click(function(e) {
+            _.pull(activeWindows, $id);
+            activeWindows.push($id);
+            updateZIndexes(activeWindows);
+        });
+
         // Window Close
         $(".window#" + $id + " .controls .close").click(function(e) {
             // Prevent Double Trigger
             e.stopImmediatePropagation();
 
             // Destroy Window
-            $window.remove();
+            fadeRemove($window, 85);
             windows[object.app][$id] = false;
 
             // Remove from list of active windows
@@ -193,8 +227,8 @@ function guid() {
 }
 
 
-function fadeRemove(el) {
-    el.fadeOut("fast", function() {
+function fadeRemove(el, sp) {
+    el.fadeOut(sp || "fast", function() {
         el.remove();
     });
 }
