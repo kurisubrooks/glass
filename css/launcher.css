@@ -57,6 +57,7 @@
 
 .toolbar .launcher .applications {
     display: inline-block;
+    max-width: 340px;
     padding: 1em;
 }
 
