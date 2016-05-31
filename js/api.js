@@ -1,6 +1,5 @@
 var windows = {};
 var notifications = {};
-
 var activeWindows = [];
 
 window.OS = function() {
@@ -12,8 +11,8 @@ window.OS = function() {
     var $this = this;
 
     this.Window = function(object) {
-        var $id = guid();
         var $data;
+        var $id = guid();
         var $url = $app_path + object.app + "/index.html";
 
         // Window Template
@@ -32,6 +31,17 @@ window.OS = function() {
             .done(function(data) {
                 $data = data;
 
+                var prohibit = ["<style>", "<link", "<script src=", "<head>", "<html>"];
+                if (new RegExp(prohibit.join("|")).test(data)) {
+                    console.error(object.title + ".app contains one of the following prohibited elements: (" + prohibit.join(" | ") + ")");
+                    $this.Alert({
+                        title: "System Error",
+                        message: object.title + ".app does not meet app guidelines. Check the JavaScript console for more details."
+                    });
+
+                    return;
+                }
+
                 if (object.type === "inline") {
                     $page.append(data);
                     $window.addClass("inline");
@@ -42,10 +52,13 @@ window.OS = function() {
 
                 $window.show();
             }).fail(function(error) {
+                var error_text;
+                if (error.statusText == "Not Found") error_text = object.title + ".app was not found. ";
+
                 $window.remove();
                 $this.Alert({
                     title: "System Error",
-                    message: "Failed to open " + object.app + ".app, Check the JavaScript console for more details."
+                    message: error_text + "Check the JavaScript console for more details."
                 });
             });
 
@@ -226,13 +239,11 @@ function guid() {
     return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 }
 
-
 function fadeRemove(el, sp) {
     el.fadeOut(sp || "fast", function() {
         el.remove();
     });
 }
-
 
 function updateZIndexes(ids) {
     var baseIndex = 100; // the z-index to start with
@@ -241,7 +252,6 @@ function updateZIndexes(ids) {
         $('#' + id).css('z-index', baseIndex + i);
     }
 }
-
 
 function safe(string) {
     console.log(string);
