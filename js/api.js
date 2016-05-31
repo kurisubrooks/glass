@@ -60,6 +60,7 @@ window.OS = function() {
             my: "center center",
             at: "center center"
         });
+        $window.focus();
 
         // Window Activation
         if (!windows[object.app]) windows[object.app] = {};
