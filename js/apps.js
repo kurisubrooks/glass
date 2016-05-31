@@ -3,24 +3,29 @@ OS.apps = [
         title: "Browser",
         app: "browser",
         theme: "light",
-        taskbar: true
+        taskbar: true,
+        height: 400,
+        width: 700
     },
     {
         title: "Search",
         app: "google",
         theme: "light",
-        taskbar: false
+        height: 400,
+        width: 700
     },
     {
         title: "Settings",
         app: "settings",
+        type: "inline",
         theme: "light",
-        taskbar: false
+        height: 400,
+        width: 700
     },
     {
         title: "Window",
-        type: "inline",
         app: "window",
+        type: "inline",
         theme: "light",
         taskbar: true,
         height: 400,
@@ -28,10 +33,9 @@ OS.apps = [
     },
     {
         title: "Window2",
-        type: "inline",
         app: "window2",
+        type: "inline",
         theme: "light",
-        taskbar: true,
         height: 400,
         width: 700
     }
@@ -63,6 +67,9 @@ $(document).ready(function() {
         $("[id^='" + $app_id + "']").click(function(e) {
             e.stopImmediatePropagation();
             new OS().Window(object);
+            $(".launcher").fadeOut(25);
+            $("#app_launcher").removeClass("active");
+            popovers.apps = false;
         });
     });
 });
